@@ -1,0 +1,9 @@
+services:
+  weather-station:
+    build: .
+    container_name: estacion_meteorologica
+    restart: unless-stopped
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    env_file:
+      - .env
