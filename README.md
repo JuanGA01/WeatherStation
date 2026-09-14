@@ -1,6 +1,6 @@
 # RTL-SDR Weather Station Bridge
 
-A robust, Dockerized Python bridge that intercepts unencrypted 433MHz radio signals from a Fineoffset WHx080 weather station using an RTL-SDR dongle, processes the raw telemetry, and automatically pushes live updates to Weather Underground.
+A robust, Dockerized Python bridge that intercepts unencrypted 433MHz radio signals from a Fineoffset WHx080 weather station using an RTL-SDR dongle, processes the raw telemetry, and automatically pushes live updates to [Weather Underground](https://www.wunderground.com/).
 
 ## Features
 
