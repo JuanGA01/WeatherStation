@@ -1,6 +1,6 @@
 FROM python:3.11-alpine
 
-# Instalar dependencias del sistema, librerías de desarrollo correctas y compilar rtl_433
+# Install system dependencies, correct dev libraries, and build rtl_433
 RUN apk add --no-cache \
     rtl-sdr \
     librtlsdr-dev \
@@ -17,13 +17,13 @@ RUN apk add --no-cache \
     && apk del build-base cmake git librtlsdr-dev \
     && rm -rf /tmp/rtl_433
 
-# Instalar dependencias de Python
+# Install Python dependencies
 RUN pip install --no-cache-dir requests
 
 WORKDIR /app
 
-# Copiamos tu archivo local con tilde y lo guardamos sin tilde dentro del contenedor
+# Copy your local file with an accent and save it without the accent inside the container
 COPY Estación.py /app/estacion.py
 
-# Comando de ejecución apuntando al archivo interno
+# Run command pointing to the internal file
 CMD rtl_433 -f 433.92M -Y classic -s 250k -F json | python -u /app/estacion.py $WU_STATION_ID $WU_STATION_KEY
